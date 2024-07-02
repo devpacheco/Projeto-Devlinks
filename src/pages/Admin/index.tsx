@@ -2,7 +2,7 @@ import { FormEvent, useState, useEffect } from "react"
 import { Header } from "../../Components/Header"
 import { Input } from "../../Components/input"
 import { FiTrash } from "react-icons/fi"
-import { auth, db } from "../../Services/firebaseConnection"
+import { db } from "../../Services/firebaseConnection"
 
 import {
     addDoc,
@@ -51,6 +51,10 @@ export function Admin(){
                 setLinks(lista)
 
             })
+
+            return () => {
+                unsub();
+            }
 
         },[])
 
